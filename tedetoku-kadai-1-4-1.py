@@ -222,6 +222,7 @@ MAP_ELECTRON_REPULSION_INTEGRAL = MappingProxyType(
     }
 )
 """電子反発積分 (付録より)"""
+None
 
 
 # %% [markdown]
