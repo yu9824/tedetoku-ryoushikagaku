@@ -32,7 +32,7 @@ from scipy.linalg import ishermitian
 # ## 対象分子の設定
 
 # %% [markdown]
-# 核電荷$Z_\mathrm{He}=2.0$, $Z_\mathrm{H}=1.0$, 核座標$\bm{R_\mathrm{He}}=(0.0, 0.0, 0.0)$, $\bm{R_\mathrm{H}}=(0.0, 0.0, 1.4)$より、核反発エネルギー
+# 核電荷$Z_\mathrm{He}=2.0$, $Z_\mathrm{H}=1.0$, 核座標$\boldsymbol{R}_\mathrm{He}=(0.0, 0.0, 0.0)$, $\boldsymbol{R}_\mathrm{H}=(0.0, 0.0, 1.4)$より、核反発エネルギー
 
 # %% [markdown]
 # $$
@@ -173,7 +173,7 @@ C
 
 
 # %% [markdown]
-# 密度行列 $\bm{P}$ は、
+# 密度行列 $\boldsymbol{P}$ は、
 #
 # $$
 # P_{\mu\nu} = 2 \sum_{i} c_{\mu i}^* c_{\nu i} \tag{4.19}

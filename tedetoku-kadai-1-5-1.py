@@ -32,7 +32,7 @@ from scipy.linalg import ishermitian
 # ## 対象分子の設定
 
 # %% [markdown]
-# 核電荷$Z_\mathrm{He}=2.0$, $Z_\mathrm{H}=1.0$, 核座標$\boldsymbol{R_\mathrm{He}}=(0.0, 0.0, 0.0)$, $\boldsymbol{R_\mathrm{H}}=(0.0, 0.0, 1.4)$より、核反発エネルギー
+# 核電荷$Z_\mathrm{He}=2.0$, $Z_\mathrm{H}=1.0$, 核座標$\boldsymbol{R}_\mathrm{He}=(0.0, 0.0, 0.0)$, $\boldsymbol{R}_\mathrm{H}=(0.0, 0.0, 1.4)$より、核反発エネルギー
 
 # %% [markdown]
 # $$
