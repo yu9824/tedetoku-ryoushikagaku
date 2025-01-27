@@ -160,7 +160,10 @@ H
 # ## 密度行列の初期値
 
 # %% [markdown]
-# ### 1-4-1と同じ方法
+# ### 係数行列を求める方法
+
+# %% [markdown]
+# #### 1-4-1と同じ方法
 #
 # コアハミルトニアン行列を使うパターン
 
@@ -186,6 +189,87 @@ C = X @ C_prime
 """分子軌道係数行列"""
 C
 
+# %% [markdown]
+# #### MO軌道をAOと仮定する方法
+
+# %% [markdown]
+# $$
+# \varphi_1^\alpha = \varphi_1^\beta = \chi_1 \\
+# \varphi_2^\alpha = \varphi_2^\beta = \chi_2
+# $$
+#
+# とする。
+#
+# つまり、1番目のMOはHeの1s軌道、2番目のMOはHの1s軌道と仮定している。
+#
+# これらは直交ではないので直交化してあげる必要がある。
+#
+# - 正準直交化: せっかく意味のあるMO軌道を仮定しているのに全く意味がなくなるので不適
+# - 対称直交化: HF法では、占有軌道のみ直交化されれば良いのだが、すべての分子軌道に対して直交化が行われるので不適
+#
+# -> Gram-Schmidtの直交化 (今回のケースでは、$\alpha$電子のすべてのMOが$\alpha$電子の占有軌道となり、メリットはないが。)
+#
+
+# %% [markdown]
+# 1番目の分子軌道について、
+#
+# $$
+# |\varphi'_1 \rangle = \frac{|\varphi_1 \rangle}{\sqrt{\langle \varphi_1 |  \varphi_1 \rangle}} \tag{4.44}
+# $$
+#
+# より、
+#
+# $$
+# |\varphi'_1 \rangle = \frac{|\chi_1 \rangle}{\sqrt{\langle \chi_1 |  \chi_1 \rangle}} = \frac{|\chi_1 \rangle}{\sqrt{1.0}} = |\chi_1 \rangle
+# $$
+
+# %% [markdown]
+# 2番目の分子軌道について、
+#
+# $$
+# |\varphi''_2 \rangle = |\varphi_2 \rangle - |\varphi'_1 \rangle  \langle \varphi'_1 | \varphi_2 \rangle = \left( 1-|\varphi'_1 \rangle \langle \varphi'_1 | \right) | \varphi_2 \rangle \tag{4.45}
+# $$
+#
+# より、
+#
+# $$
+# \begin{align*}
+#     \varphi''_2 &= |\varphi_2 \rangle - |\varphi'_1 \rangle  \langle \varphi'_1 | \varphi_2 \rangle \\
+#     &= |\chi_2 \rangle - |\chi_1 \rangle \langle \chi_1 | \chi_2 \rangle \\
+#     &= - 0.56059 \times |\chi_1 \rangle + |\chi_2 \rangle\ \ \ \because 付録より \langle \chi_1 | \chi_2 \rangle = 0.56059
+# \end{align*}
+# $$
+
+# %% [markdown]
+# さらに、以下の式を用いて直交化すると、
+#
+# $$
+# |\varphi'_2 \rangle = \frac{|\varphi''_2 \rangle}{\sqrt{\langle \varphi''_2 | \varphi''_2 \rangle}} \tag{4.46}
+# $$
+#
+# $$
+# \begin{align*}
+#     |\varphi'_2 \rangle &= \frac{|\varphi''_2 \rangle}{\sqrt{\langle \varphi''_2 | \varphi''_2 \rangle}} \\
+#     &= \frac{- 0.56059 \times |\chi_1 \rangle + |\chi_2 \rangle}{\sqrt{(- 0.56059)^2 \langle \chi_1 | \chi_1 \rangle + 2 \cdot (- 0.56059) \langle \chi_1 | \chi_2 \rangle + \langle \chi_2 | \chi_2 \rangle }} \\
+#     &= \frac{- 0.56059 \times |\chi_1 \rangle + |\chi_2 \rangle}{\sqrt{(- 0.56059)^2 \cdot 1.0 + 2 \cdot (- 0.56059) \cdot (-0.56059) + 1.0 }} \\
+#     &= \frac{- 0.56059 \times |\chi_1 \rangle + |\chi_2 \rangle}{1.39384} \\
+#     &= -0.40220 \times |\chi_1 \rangle + 0.71744 \times |\chi_2 \rangle
+# \end{align*}
+#
+#
+# $$
+
+# %% [markdown]
+# つまり、
+
+# %%
+C = np.array([[1.0, -0.40220], [0.0, 0.71744]])
+"""分子軌道係数行列"""
+C
+
+
+# %% [markdown]
+# ### 係数行列から密度行列を求める
 
 # %% [markdown]
 # 密度行列 $\boldsymbol{P}$ は、$\alpha$スピン、$\beta$スピンそれぞれに対して、
