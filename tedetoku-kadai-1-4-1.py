@@ -100,6 +100,8 @@ def unitary_diagonalization(arr: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
 
 
 s, U = unitary_diagonalization(S)
+"""s: 固有値
+U: 固有ベクトル"""
 print(f"{s=}")
 print(f"{U=}")
 
