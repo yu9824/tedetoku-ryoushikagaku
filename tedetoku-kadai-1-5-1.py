@@ -241,11 +241,13 @@ C
 # $$
 
 # %% [markdown]
-# さらに、以下の式を用いて直交化すると、
+# さらに、規格化する。
 #
 # $$
 # |\varphi'_2 \rangle = \frac{|\varphi''_2 \rangle}{\sqrt{\langle \varphi''_2 | \varphi''_2 \rangle}} \tag{4.46}
 # $$
+#
+# より、
 #
 # $$
 # \begin{align*}
