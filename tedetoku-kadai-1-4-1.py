@@ -40,7 +40,13 @@ from scipy.linalg import ishermitian
 # $$
 
 # %%
-V_nuc = (2.0 * 1.0) / 1.4
+Z_He = 2.0
+"""Heの核電荷"""
+Z_H = 1.0
+"""Hの核電荷"""
+
+# %%
+V_nuc = (Z_He * Z_H) / 1.4
 """核間のポテンシャルエネルギー"""
 V_nuc
 
@@ -145,7 +151,7 @@ H
 # 直行化基底に対するコアハミルトン行列 $H'$ は、
 #
 # $$
-# H'=X^T HX
+# H'=X^T HX   \tag{4.2}
 # $$
 
 # %%
@@ -174,7 +180,7 @@ C
 # $i$は、分子軌道の足、$\mu, \nu$は原子軌道の足
 
 # %% [markdown]
-# HeH+ では、占有軌道 $\varphi_i$ だけなので、 ($1\sigma$ 軌道だけという意味と解釈)
+# HeH+ では、占有軌道 $\varphi_1$ だけなので、 ($1\sigma$ 軌道だけという意味と解釈)
 
 # %%
 def calculate_density_matrix(C: np.ndarray) -> np.ndarray:
@@ -458,9 +464,9 @@ print(f"{N_H=}")
 # より、
 
 # %%
-Q_He = 2 - N_He
+Q_He = Z_He - N_He
 """Heの電荷"""
-Q_H = 1 - N_H
+Q_H = Z_H - N_H
 """Hの電荷"""
 print(f"{Q_He=}")
 print(f"{Q_H=}")
