@@ -3,8 +3,6 @@
 format: jb-book
 root: README.md
 chapters:
-  - file: README
-    title: ホーム
   - file: tedetoku-kadai-1-4-1
     title: 課題 1-4-1
   - file: tedetoku-kadai-1-5-1
