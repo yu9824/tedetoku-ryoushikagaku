@@ -1,12 +1,12 @@
 # Jupyter Bookの目次ファイル
 
 format: jb-book
-root: index
+root: index.md
 chapters:
-  - file: tedetoku-kadai-1-4-1
+  - file: tedetoku-kadai-1-4-1.ipynb
     title: 課題 1-4-1
-  - file: tedetoku-kadai-1-5-1
+  - file: tedetoku-kadai-1-5-1.ipynb
     title: 課題 1-5-1
-  # - file: tedetoku-kadai-1-5-2
+  # - file: tedetoku-kadai-1-5-2.ipynb
   #   title: 課題 1-5-2
 
