@@ -25,5 +25,7 @@ site:
   title: 手で解く量子化学
   template: book-theme
   options:
+    outline_maxdepth: 2
     favicon: imgs/favicon.png
     logo: imgs/site_logo.png
+    logo_dark: imgs/site_logo_dark.png
