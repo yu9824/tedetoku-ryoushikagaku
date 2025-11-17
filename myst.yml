@@ -16,7 +16,8 @@ project:
     - file: tedetoku-kadai-1-5-2.ipynb
 
 site:
+  title: 手で解く量子化学 手で解く課題
   template: book-theme
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
+  options:
+    favicon: imgs/favicon.png
+    logo: imgs/site_logo.png
